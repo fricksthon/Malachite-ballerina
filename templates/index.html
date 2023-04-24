@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+<h1>Ваш холодильник</h1>
+{% for i in availability %}
+<div class="col-md6 border rounded">
+    <h2>{{ items[i.item_id].content }}: {{ i.amount }}</h2>
+</div>
+{% endfor %}
+<a class="btn btn-primary " href="/add">Добавить/убрать</a>
+{% else%}
+<h1>Пожалуйста, зарегистрируйтесь или войдите в аккаунт</h1>
+{% endif %}
+{% endblock %}
